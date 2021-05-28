@@ -1,0 +1,16 @@
+.app {
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	position: relative;
+
+	&_main {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		display: flex;
+		min-height: 100vh;
+		background: #e0e0e0;
+		box-shadow: 20px 20px 60px #bebebe;
+	}
+}
