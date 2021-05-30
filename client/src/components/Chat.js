@@ -6,9 +6,9 @@ import InsertCommentIcon from '@material-ui/icons/InsertComment'
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions'
 import SearchIcon from '@material-ui/icons/Search'
 
-const Chat = () => {
+const Chat = ({ desktop, messages }) => {
   return (
-    <section className='chat'>
+    <section className={`chat ${desktop && `chat_desktop`}`}>
       <div className='chat_header'>
         <Avatar></Avatar>
         <div className='chat_header_title'>
@@ -16,33 +16,35 @@ const Chat = () => {
           <p>Last seen at this time</p>
         </div>
         <div className='chat_header_icons'>
-          <IconButton aria-label='' onClick={``}>
+          <IconButton aria-label=''>
             <LinkIcon></LinkIcon>
           </IconButton>
-          <IconButton aria-label='' onClick={``}>
+          <IconButton aria-label=''>
             <MoreVertIcon></MoreVertIcon>
           </IconButton>
         </div>
       </div>
       <div className='chat_body'>
-        <p className='chat_body_message'>
-          <span className='chat_body_name'>Calvyn</span>
-          Hello
-          <span className='chat_body_timestamp'>
-            {new Date().toDateString()}
-          </span>
-        </p>
-        <p className='chat_body_message receiver'>
-          <span className='chat_body_name'>Calvyn</span>
-          Hello
-          <span className='chat_body_timestamp'>
-            {new Date().toDateString()}
-          </span>
-        </p>
+        {messages.map(message => {
+          return (
+            <p
+              className={`chat_body_message ${message.received && `receiver`} `}
+            >
+              <span className='chat_body_name'>{message.name}</span>
+              Hello
+              <span className='chat_body_timestamp'>{message.timestamp}</span>
+            </p>
+          )
+        })}
+
       </div>
       <div className='chat_footer'>
-        <InsertCommentIcon></InsertCommentIcon>
-        <EmojiEmotionsIcon></EmojiEmotionsIcon>
+        <IconButton>
+          <InsertCommentIcon></InsertCommentIcon>
+        </IconButton>
+        <IconButton>
+          <EmojiEmotionsIcon></EmojiEmotionsIcon>
+        </IconButton>
         <form action='|'>
           <input
             placeholder='Type your message here'

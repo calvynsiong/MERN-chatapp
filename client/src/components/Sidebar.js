@@ -6,10 +6,10 @@ import CameraAltIcon from '@material-ui/icons/CameraAlt'
 import SearchIcon from '@material-ui/icons/Search'
 import SidebarChat from './SidebarChat'
 
-const Sidebar = () => {
+const Sidebar = ({ desktop }) => {
   return (
     <>
-      <div className='sidebar'>
+      <div className={`sidebar ${desktop && `sidebar_desktop`}`}>
         <div className='sidebar_header'>
           <Avatar></Avatar>
           <div className='sidebar_headerRight'>
@@ -35,9 +35,8 @@ const Sidebar = () => {
           />
         </div>
         <div className='sidebar_tab'>
-        <h2> Chats </h2>
+          <h2> Chats </h2>
           <SidebarChat></SidebarChat>
-         
         </div>
       </div>
     </>

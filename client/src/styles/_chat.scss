@@ -1,8 +1,12 @@
 .chat {
 	display: flex;
 	flex-direction: column;
-	flex: 0.6;
 	height: 100vh;
+	flex: 1;
+
+	&_desktop {
+		flex: 0.6;
+	}
 
 	&_header {
 		padding: 1em;
@@ -21,6 +25,7 @@
 	&_body {
 		flex: 1;
 		padding: 3rem;
+		padding-bottom: 0;
 		overflow-y: scroll;
 		@include smallScrollbar();
 
@@ -30,12 +35,14 @@
 			width: fit-content;
 			border-radius: 1em;
 			background-color: white;
-			margin-bottom: 3rem;
+			margin-bottom: 2.5rem;
 		}
 		&_name {
 			position: absolute;
 			top: -1.75rem;
 			font-weight: 600;
+			display: flex;
+			width: calc(100% + 20px);
 		}
 		&_timestamp {
 			font-size: x-small;
@@ -46,6 +53,7 @@
 			background-color: lightblue;
 			> .chat_body_name {
 				right: 1em;
+				justify-content: flex-end;
 			}
 		}
 	}

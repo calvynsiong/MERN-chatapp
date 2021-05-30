@@ -2,26 +2,22 @@
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
-	flex: 0.4;
 	border-right: 1px solid $grey;
+	flex: 1;
+
+	&_desktop {
+		flex: 0.4;
+	}
 
 	&_header {
 		display: flex;
 		padding: 1em;
 		margin: 2em 0;
-		@media (max-width: 600px) {
-			flex-direction: column;
-			align-items: center;
-		}
 	}
 
 	&_headerRight {
 		display: flex;
 		margin-left: auto;
-		@media (max-width: 600px) {
-			flex-direction: column;
-			margin-left: 0;
-		}
 		& > *:hover {
 			color: rgb(6, 79, 6);
 		}
