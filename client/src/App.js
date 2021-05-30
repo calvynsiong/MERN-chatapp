@@ -22,21 +22,21 @@ function App () {
     
     const channel = pusher.subscribe('messages')
     channel.bind('inserted', function (data) {
-      alert(JSON.stringify(data))
       setMessages([...messages, JSON.stringify(data)])
     })
-    
     return () => {
       channel.unbind_all()
       channel.unsubscribe()
     }
-  }, [messages])
+  }, [])
+
+
+
   useEffect(() => {
     const fetchMessages = async () => {
       let response = await axios.get('/api/messages/sync')
       setMessages(response.data)
     }
-    
     fetchMessages()
   })
   

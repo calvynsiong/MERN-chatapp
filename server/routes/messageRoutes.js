@@ -25,5 +25,20 @@ router.get('/sync', (req, res) => {
         }
   })
 })
+router.delete('/sync', (req, res) => {
+
+  const deletion = req.body
+  Messages.deleteMany(deletion,(err, data)=> {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(data);
+            
+        }
+  })
+})
+
+
+
 
 module.exports = router

@@ -20,7 +20,7 @@ app.use(cors())
 app.use('/api/messages', messageRoutes)
 
 app.get('/', (req, res) => {
-  res.status(200).send('Oka computer')
+  res.status(200).send('Ok computer')
 })
 
 // ! Deployment
